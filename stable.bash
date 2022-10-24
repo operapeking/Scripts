@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+echo "Enter your domain and fake domain, and confirm the dns is right."
+read domain fakedomain
+
 domain = $1
 fakedomain = $2
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-domain = $1
+echo "Enter your domain, and confirm the dns is right."
+read domain
 
 apt update
 
@@ -109,4 +110,4 @@ uuid = uuidgen
 
 systemctl restart xray
 
-echo "不出意外的话应该是可以了，你的 uuid 为 $uuid"
+echo "不出意外的话应该是可以了，你的 uuid 为 $uuid，路径为 '/api'，类型为 VLESS + tcp + ws 和 VLESS + tcp + tls。"
