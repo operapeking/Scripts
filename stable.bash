@@ -9,7 +9,7 @@ fakedomain = $2
 apt update
 
 apt install nginx
-"server {
+echo "server {
   listen 80 default_server;
   listen [::]:80 default_server;
 
@@ -36,7 +36,7 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 
 uuid = uuidgen
 
-"{
+echo "{
   \"log\": {
     \"loglevel\": \"warning\",
     \"access\": \"/var/log/xray/access.log\",
@@ -71,7 +71,7 @@ uuid = uuidgen
 
 systemctl restart xray
 
-"server {
+echo "server {
     listen 443 ssl;
     ssl_certificate /etc/nginx/cert/$domain.cer;
     ssl_certificate_key /etc/nginx/cert/$domain.key;

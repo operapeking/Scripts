@@ -6,7 +6,7 @@ read domain
 apt update
 
 apt install nginx
-"server {
+echo "server {
   listen 80 default_server;
   listen [::]:80 default_server;
 
@@ -32,7 +32,7 @@ acme.sh --install-cert -d $domain --key-file /usr/local/etc/xray/$domain.key --f
 
 uuid = uuidgen
 
-"{
+echo "{
   \"log\": {
     \"loglevel\": \"warning\",
     \"access\": \"/var/log/xray/access.log\",
