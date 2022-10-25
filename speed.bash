@@ -10,7 +10,7 @@ echo "server {
   listen 80 default_server;
   listen [::]:80 default_server;
 
-  server_name $domain
+  server_name $domain;
 
   root /var/www/html;
 
@@ -24,13 +24,13 @@ systemctl restart nginx
 ufw disable
 
 curl https://get.acme.sh | sh -s email=t@t.tt
-source .bashrc
-acme.sh --issue -d $domain --nginx
+bash /root/.acme.sh/acme.sh --issue -d $domain --nginx
 
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u root
-acme.sh --install-cert -d $domain --key-file /usr/local/etc/xray/$domain.key --fullchain-file /usr/local/etc/xray/$domain.cer --reloadcmd "systemctl restart xray"
+bash /root/.acme.sh/acme.sh --install-cert -d $domain --key-file /usr/local/etc/xray/$domain.key --fullchain-file /usr/local/etc/xray/$domain.cer --reloadcmd "systemctl restart xray"
 
-uuid = uuidgen
+echo "Input an uuid"
+read uuid
 
 echo "{
   \"log\": {
